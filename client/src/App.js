@@ -4,7 +4,8 @@ import Landing from "./components/layout/Landing";
 import Navbar from "./components/layout/Navbar";
 import Routes from "./components/routing/Routes";
 import "./App.css";
-
+import "./style/css/bootstrap.css";
+import "./style/css/style.css";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
