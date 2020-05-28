@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Landing from "./components/layout/Landing";
+import Landing from "./components/layout/LandingPage/Landing";
 import Navbar from "./components/layout/Navbar";
 import Routes from "./components/routing/Routes";
-import "./App.css";
+import "./style/css/App.css";
 import "./style/css/bootstrap.css";
 import "./style/css/style.css";
 // Redux
