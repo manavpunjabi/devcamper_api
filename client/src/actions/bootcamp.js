@@ -15,3 +15,21 @@ export const getLatestBootcamps = () => async (dispatch) => {
     });
   }
 };
+
+export const getBootcamps = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/v1/bootcamps");
+    dispatch({
+      type: GET_BOOTCAMPS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: BOOTCAMP_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
+      },
+    });
+  }
+};

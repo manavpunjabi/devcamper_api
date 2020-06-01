@@ -172,7 +172,7 @@ exports.bootcampImageUpload = asyncHandler(async (req, res, next) => {
       return next(new ErrorResponse(`Error uploading image`, 500));
     }
     await Bootcamp.findByIdAndUpdate(req.params.id, {
-      photo: file.name,
+      photo: `${process.env.FILE_SAVE_PATH}/${file.name}`,
     });
     res.status(200).json({
       success: true,
