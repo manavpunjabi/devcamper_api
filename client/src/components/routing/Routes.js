@@ -6,13 +6,14 @@ import Register from "../auth/Register";
 import Login from "../auth/Login";
 import PrivateRoute from "./PrivateRoute";
 import Bootcamps from "../layout/Bootcamp/Bootcamps";
-
+import Bootcamp from "../layout/Bootcamp/Bootcamp";
 const Routes = () => {
   return (
     <section className="container">
       <Alert />
       <Switch>
         <PrivateRoute exact path="/bootcamps" component={Bootcamps} />
+        <PrivateRoute exact path="/bootcamps/:id" component={Bootcamp} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route component={NotFound} />

@@ -1,9 +1,24 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import LatestBootcamp from "./LatestBootcamps";
-const Landing = () => {
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
+import { getBootcampsByDistance } from "../../../actions/bootcamp";
+
+const Landing = ({ getBootcampsByDistance, history }) => {
+  const [formData, setFormData] = useState({ kms: "", pincode: "" });
+
+  const { kms, pincode } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const onSubmit = (e) => {
     e.preventDefault();
+    getBootcampsByDistance(kms, pincode, history, true);
+    return <Redirect to="/bootcamps" />;
   };
+
   return (
     <Fragment>
       <section className="showcase">
@@ -22,6 +37,8 @@ const Landing = () => {
                       className="form-control"
                       name="kms"
                       placeholder="Kilometres From"
+                      value={kms}
+                      onChange={(e) => onChange(e)}
                     />
                   </div>
                 </div>
@@ -32,6 +49,8 @@ const Landing = () => {
                       className="form-control"
                       name="pincode"
                       placeholder="Enter Pincode"
+                      value={pincode}
+                      onChange={(e) => onChange(e)}
                     />
                   </div>
                 </div>
@@ -51,4 +70,8 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+Landing.propTypes = {
+  getBootcampsByDistance: PropTypes.func.isRequired,
+};
+
+export default connect(null, { getBootcampsByDistance })(Landing);

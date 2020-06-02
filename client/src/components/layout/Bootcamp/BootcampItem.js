@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 const BootcampItem = ({
   bootcamp: {
     name,
@@ -8,6 +8,7 @@ const BootcampItem = ({
     location: { city, state },
     photo,
     careers,
+    id,
   },
 }) => {
   return (
@@ -19,12 +20,12 @@ const BootcampItem = ({
         <div className="col-md-8">
           <div className="card-body">
             <h5 className="card-title">
-              <a href="bootcamp.html">
+              <Link to={`/bootcamps/${id}`}>
                 {name}
                 <span className="float-right badge badge-success">
                   {rating}
                 </span>
-              </a>
+              </Link>
             </h5>
             <span className="badge badge-dark mb-2">
               {city}, {state}

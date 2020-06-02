@@ -1,34 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 const Pagination = (props) => {
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination">
         <li className="page-item">
-          <a className="page-link" href="#">
+          <Link className="page-link" to="#">
             Previous
-          </a>
+          </Link>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#">
+          <Link className="page-link" to="#">
             1
-          </a>
+          </Link>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#">
+          <Link className="page-link" to="#">
             2
-          </a>
+          </Link>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#">
+          <Link className="page-link" to="#">
             3
-          </a>
+          </Link>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#">
+          <Link className="page-link" to="#">
             Next
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

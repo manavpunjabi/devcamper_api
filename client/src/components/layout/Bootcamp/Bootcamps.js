@@ -1,22 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getBootcamps } from "../../../actions/bootcamp";
 import BootcampItem from "./BootcampItem";
 import Siderbar from "./Sidebar";
+import Spinner from "../../spinner/Spinner";
 import Pagination from "./Pagination";
-const Bootcamps = ({ bootcamp: { bootcamps }, getBootcamps }) => {
+
+const Bootcamps = ({ bootcamp: { bootcamps, loading }, getBootcamps }) => {
   useEffect(() => {
     getBootcamps();
   }, [getBootcamps]);
 
-  return (
-    //   Latest bootcamps
+  return loading ? (
+    <Spinner />
+  ) : (
     <section className="browse my-6">
       <div className="container">
         <div className="row">
           {/* Sidebar  */}
           <Siderbar />
+
           {/* Main col  */}
           <div className="col-md-8">
             {/* Bootcamps  */}
@@ -32,6 +36,7 @@ const Bootcamps = ({ bootcamp: { bootcamps }, getBootcamps }) => {
       </div>
     </section>
   );
+  //   Latest bootcamps
 };
 
 Bootcamps.propTypes = {
