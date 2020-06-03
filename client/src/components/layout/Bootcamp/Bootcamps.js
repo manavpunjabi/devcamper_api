@@ -36,7 +36,6 @@ const Bootcamps = ({ bootcamp: { bootcamps, loading }, getBootcamps }) => {
       </div>
     </section>
   );
-  //   Latest bootcamps
 };
 
 Bootcamps.propTypes = {

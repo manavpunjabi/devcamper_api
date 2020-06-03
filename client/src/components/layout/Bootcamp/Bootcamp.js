@@ -47,7 +47,8 @@ const Bootcamp = ({
           </h1>
           {/* <!-- Buttons --> */}
           <Link
-            to={`/reviews/${bootcamp.id}`}
+            to={`/bootcamps/${bootcamp.id}/reviews`}
+            replace
             className="btn btn-dark btn-block my-3"
           >
             <i className="fas fa-comments"></i> Read Reviews
