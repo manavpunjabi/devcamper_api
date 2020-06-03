@@ -84,10 +84,11 @@ export const getBootcamp = (id) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    console.error(err);
     dispatch({
       type: BOOTCAMP_ERROR,
       payload: {
-        msg: err.response.statusText,
+        msg: err.message,
         status: err.response.status,
       },
     });

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LatestBootcamp = ({
   bootcamp: {
@@ -8,6 +9,7 @@ const LatestBootcamp = ({
     rating,
     description,
     careers,
+    id,
   },
 }) => {
   return (
@@ -15,10 +17,10 @@ const LatestBootcamp = ({
       <img src={photo} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">
-          <a href="bootcamp.html">
+          <Link to={`/bootcamps/${id}`}>
             {name}
             <span className="float-right badge badge-success">{rating}</span>
-          </a>
+          </Link>
         </h5>
         <span className="badge badge-dark mb-2">
           {city}, {state}
