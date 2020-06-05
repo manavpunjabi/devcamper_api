@@ -3,6 +3,7 @@ import {
   BOOTCAMP_ERROR,
   GET_BOOTCAMPS_BY_DISTANCE,
   GET_BOOTCAMP,
+  ADD_BOOTCAMP,
 } from "../actions/types";
 
 const initialState = {
@@ -31,6 +32,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         bootcamps: payload.data,
+        loading: false,
+      };
+    case ADD_BOOTCAMP:
+      return {
+        ...state,
+        bootcamp: payload.data,
         loading: false,
       };
     case BOOTCAMP_ERROR:

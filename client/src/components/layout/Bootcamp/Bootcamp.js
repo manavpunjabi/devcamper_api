@@ -41,7 +41,7 @@ const Bootcamp = ({
           {/* <!-- Rating --> */}
           <h1 class="text-center my-4">
             <span className="badge badge-secondary badge-success rounded-circle p-3">
-              {bootcamp.rating}
+              {bootcamp.averageRating}
             </span>{" "}
             Rating
           </h1>

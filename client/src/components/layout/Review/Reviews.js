@@ -33,10 +33,25 @@ const Reviews = ({
             >
               <i class="fas fa-chevron-left"></i> Bootcamp Info
             </Link>
-            <h1 className="mb-4">{bootcamp.name} Bootcamp Review </h1>
+            <h1 className="mb-4">{bootcamp.name} Reviews </h1>
             {reviews.map((r) => (
               <Review key={r._id} review={r} />
             ))}
+          </div>
+          <div className="col-md-4">
+            <h1 className="text-center my-4">
+              <span className="badge badge-secondary badge-success rounded-circle p-3">
+                {bootcamp.averageRating}
+              </span>
+              Rating
+            </h1>
+            <Link
+              to={`/bootcamps/:id/reviews/add-review`}
+              replace
+              className="btn btn-primary btn-block my-3"
+            >
+              <i class="fas fa-pencil-alt"></i> Review This Bootcamp
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-const Review = ({ review: { title, text, rating } }) => {
+const Review = ({ review: { title, rating, text } }) => {
   return (
     <div className="card mb-3">
       <div className="card-header bg-dark text-white">{title}</div>
@@ -10,12 +10,13 @@ const Review = ({ review: { title, text, rating } }) => {
           Rating <span className="text-success">{rating} </span>
         </h5>
         <p className="card-text">{text}</p>
-        <p className="text-muted">Written By</p>
       </div>
     </div>
   );
 };
 
-Review.propTypes = {};
+Review.propTypes = {
+  review: PropTypes.object.isRequired,
+};
 
 export default Review;

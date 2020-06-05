@@ -35,7 +35,7 @@ const ReviewSchema = new mongoose.Schema({
 // Prevents user from adding multiple reviews for one bootcamp
 ReviewSchema.index({ bootcamp: 1, user: 1 }, { unique: true });
 
-// static method to get avg rating
+// static method to get avg rating and save
 ReviewSchema.statics.getAverageRating = async function (bootcampId) {
   //console.log("calculating avg cost".blue);
   const obj = await this.aggregate([

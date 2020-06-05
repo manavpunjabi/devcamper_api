@@ -4,7 +4,9 @@ import {
   GET_BOOTCAMPS_BY_DISTANCE,
   GET_BOOTCAMPS_BY_FILTER,
   BOOTCAMP_ERROR,
+  ADD_BOOTCAMP,
 } from "./types";
+import { setAlert } from "./alert";
 import axios from "axios";
 
 export const getLatestBootcamps = () => async (dispatch) => {
@@ -84,7 +86,7 @@ export const getBootcamp = (id) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    console.error(err);
+    //console.error(err);
     dispatch({
       type: BOOTCAMP_ERROR,
       payload: {
@@ -92,6 +94,33 @@ export const getBootcamp = (id) => async (dispatch) => {
         status: err.response.status,
       },
     });
+  }
+};
+
+export const addBootcamp = (formData, history) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const res = await axios.post("/api/v1/bootcamps", formData, config);
+    dispatch({
+      type: ADD_BOOTCAMP,
+      payload: res.data,
+    });
+    dispatch(setAlert("Bootcamp added", "success"));
+    //history.push("/bootcamps/:id/manage-bootcamp");
+  } catch (err) {
+    dispatch({
+      type: BOOTCAMP_ERROR,
+      payload: {
+        msg: err.message,
+        status: err.response.status,
+        data: err.response.data,
+      },
+    });
+    dispatch(setAlert(err.message, "danger"));
   }
 };
 

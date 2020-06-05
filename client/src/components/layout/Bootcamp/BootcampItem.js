@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BootcampItem = ({
   bootcamp: {
     name,
-    rating,
+    averageRating,
     location: { city, state },
     photo,
     careers,
@@ -23,7 +23,7 @@ const BootcampItem = ({
               <Link to={`/bootcamps/${id}`}>
                 {name}
                 <span className="float-right badge badge-success">
-                  {rating}
+                  {averageRating}
                 </span>
               </Link>
             </h5>

@@ -23,6 +23,8 @@ const Register = ({ auth: { isAuthenticated }, setAlert, register }) => {
     e.preventDefault();
     if (password !== password2) {
       setAlert("Passwords do not match", "danger");
+    } else if (role === "") {
+      setAlert("Please select a role", "danger");
     } else {
       register({ name, email, password, role });
     }

@@ -4,6 +4,7 @@ import bootcamp from "./bootcamp";
 import auth from "./auth";
 import course from "./course";
 import review from "./review";
+import user from "./user";
 
 export default combineReducers({
   alert,
@@ -11,4 +12,5 @@ export default combineReducers({
   bootcamp,
   course,
   review,
+  user,
 });
