@@ -3,6 +3,7 @@ import {
   GET_BOOTCAMP,
   GET_BOOTCAMPS_BY_DISTANCE,
   GET_BOOTCAMPS_BY_FILTER,
+  DELETE_BOOTCAMP,
   BOOTCAMP_ERROR,
   ADD_BOOTCAMP,
 } from "./types";
@@ -140,6 +141,28 @@ export const getBootcampByUser = () => async (dispatch) => {
         data: err.response.data,
       },
     });
+  }
+};
+
+export const deleteBootcamp = (id, history) => async (dispatch) => {
+  if (window.confirm("Are you sure? This cannot be undone!")) {
+    try {
+      await axios.delete(`/api/v1/bootcamps/${id}`);
+      dispatch({
+        type: DELETE_BOOTCAMP,
+      });
+      dispatch(setAlert("Bootcamp deleted", "success"));
+    } catch (err) {
+      dispatch({
+        type: BOOTCAMP_ERROR,
+        payload: {
+          msg: err.message,
+          status: err.response.status,
+          data: err.response.data,
+        },
+      });
+      dispatch(setAlert(err.message, "danger"));
+    }
   }
 };
 

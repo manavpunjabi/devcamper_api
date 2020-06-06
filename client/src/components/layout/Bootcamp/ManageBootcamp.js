@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Spinner from "../../spinner/Spinner";
-import { getBootcampByUser } from "../../../actions/bootcamp";
+import { getBootcampByUser, deleteBootcamp } from "../../../actions/bootcamp";
 
 const ManageBootcamp = ({
   getBootcampByUser,
+  deleteBootcamp,
   bootcamp: { bootcamp, loading },
 }) => {
   useEffect(() => {
@@ -78,7 +79,12 @@ const ManageBootcamp = ({
               >
                 Manage Courses
               </Link>
-              <Link className="btn btn-danger btn-block">Remove Bootcamp</Link>
+              <Link
+                onClick={(e) => deleteBootcamp(bootcamp._id)}
+                className="btn btn-danger btn-block"
+              >
+                Remove Bootcamp
+              </Link>
               <p className="text-muted mt-5">
                 * You can only add one bootcamp per account.
               </p>
@@ -119,6 +125,7 @@ const ManageBootcamp = ({
 
 ManageBootcamp.propTypes = {
   getBootcampByUser: PropTypes.func.isRequired,
+  deleteBootcamp: PropTypes.func.isRequired,
   bootcamp: PropTypes.object.isRequired,
 };
 
@@ -126,4 +133,6 @@ const mapStateToProps = (state) => ({
   bootcamp: state.bootcamp,
 });
 
-export default connect(mapStateToProps, { getBootcampByUser })(ManageBootcamp);
+export default connect(mapStateToProps, { getBootcampByUser, deleteBootcamp })(
+  ManageBootcamp
+);

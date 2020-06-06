@@ -12,6 +12,7 @@ import Bootcamp from "../layout/Bootcamp/Bootcamp";
 import Reviews from "../layout/Review/Reviews";
 import AddBootcamp from "../layout/Bootcamp/AddBootcamp";
 import ManageBootcamp from "../layout/Bootcamp/ManageBootcamp";
+import ManageCourses from "../layout/Bootcamp/ManageCourses";
 import AddCourse from "../layout/Bootcamp/AddCourse";
 import AddReview from "../layout/Bootcamp/AddReview";
 import ManageAccount from "../layout/Manage/ManageAccount";
@@ -30,6 +31,11 @@ const Routes = () => {
           exact
           path="/manage-bootcamp"
           component={ManageBootcamp}
+        />
+        <PublisherRoute
+          exact
+          path="/manage-courses"
+          component={ManageCourses}
         />
         <PublisherRoute
           exact

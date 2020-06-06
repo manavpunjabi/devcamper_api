@@ -4,6 +4,7 @@ import {
   GET_BOOTCAMPS_BY_DISTANCE,
   GET_BOOTCAMP,
   ADD_BOOTCAMP,
+  DELETE_BOOTCAMP,
 } from "../actions/types";
 
 const initialState = {
@@ -44,6 +45,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: payload,
+        loading: false,
+      };
+    case DELETE_BOOTCAMP:
+      return {
+        ...state,
+        bootcamp: null,
         loading: false,
       };
     default:
