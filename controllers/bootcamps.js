@@ -10,6 +10,20 @@ const path = require("path");
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
   res.status(200).json(res.advancedResults);
 });
+// @desc    Get Bootcamp of logged in user
+// @route   GET /api/v1/bootcamps/user
+// @acccess Private
+
+exports.getBootcampsByUser = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
+  const bootcamp = await Bootcamp.findOne({ user: req.user.id });
+  if (!bootcamp) {
+    return next(
+      new ErrorResponse(`Bootcamp not found with id of ${req.user.id}`, 404)
+    );
+  }
+  res.status(200).json({ success: true, data: bootcamp });
+});
 
 // @desc    Get single Bootcamp
 // @route   GET /api/v1/bootcamps/:id
@@ -28,7 +42,7 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 // @route   POST /api/v1/bootcamps
 // @acccess Private
 exports.createBootcamp = asyncHandler(async (req, res, next) => {
-  // Add user to req.body
+  // Add user to req.body so that its gets added to the bootcamp in the user field as its a part of the body submitted now
   req.body.user = req.user.id;
 
   // Check for published bootcamp

@@ -3,6 +3,7 @@ const {
   getBootcamp,
   getBootcamps,
   getBootcampsInRadius,
+  getBootcampsByUser,
   createBootcamp,
   updateBootcamp,
   deleteBootcamp,
@@ -38,5 +39,9 @@ router
   .get(getBootcamp)
   .put(protect, authorize("publisher", "admin"), updateBootcamp)
   .delete(protect, authorize("publisher", "admin"), deleteBootcamp);
+
+router
+  .route("/user")
+  .post(protect, authorize("publisher", "admin"), getBootcampsByUser);
 
 module.exports = router;

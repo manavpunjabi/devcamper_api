@@ -21,3 +21,4 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const GET_USER = "GET_USER";
 export const USER_ERROR = "USER_ERROR";
+export const UPDATE_USER = "UPDATE_USER";

@@ -11,8 +11,11 @@ import Bootcamps from "../layout/Bootcamp/Bootcamps";
 import Bootcamp from "../layout/Bootcamp/Bootcamp";
 import Reviews from "../layout/Review/Reviews";
 import AddBootcamp from "../layout/Bootcamp/AddBootcamp";
+import ManageBootcamp from "../layout/Bootcamp/ManageBootcamp";
 import AddCourse from "../layout/Bootcamp/AddCourse";
 import AddReview from "../layout/Bootcamp/AddReview";
+import ManageAccount from "../layout/Manage/ManageAccount";
+
 const Routes = () => {
   return (
     <section className="container">
@@ -21,7 +24,13 @@ const Routes = () => {
         <PrivateRoute exact path="/bootcamps" component={Bootcamps} />
         <PrivateRoute exact path="/bootcamps/:id" component={Bootcamp} />
         <PrivateRoute exact path="/bootcamps/:id/reviews" component={Reviews} />
+        <PrivateRoute exact path="/manage-account" component={ManageAccount} />
         <PublisherRoute exact path="/add-bootcamp" component={AddBootcamp} />
+        <PublisherRoute
+          exact
+          path="/manage-bootcamp"
+          component={ManageBootcamp}
+        />
         <PublisherRoute
           exact
           path="/bootcamps/:id/add-course"

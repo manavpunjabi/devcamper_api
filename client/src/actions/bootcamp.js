@@ -124,6 +124,25 @@ export const addBootcamp = (formData, history) => async (dispatch) => {
   }
 };
 
+export const getBootcampByUser = () => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/v1/bootcamps/user");
+    dispatch({
+      type: GET_BOOTCAMP,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: BOOTCAMP_ERROR,
+      payload: {
+        msg: err.message,
+        status: err.response.status,
+        data: err.response.data,
+      },
+    });
+  }
+};
+
 // export const getBootcampsByFilter = ({ career, rating, budget }) => async (
 //   dispatch
 // ) => {

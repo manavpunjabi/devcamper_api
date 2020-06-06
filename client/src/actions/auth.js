@@ -8,8 +8,30 @@ import {
   REGISTER_SUCCESS,
   USER_LOADED,
   AUTH_ERROR,
+  GET_USER,
+  USER_ERROR,
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
+
+export const getCurrentUser = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/v1/auth/me");
+    dispatch({
+      type: GET_USER,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: USER_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
+        data: err.response.data,
+      },
+    });
+  }
+};
+
 // Load User
 
 export const loadUser = () => async (dispatch) => {
