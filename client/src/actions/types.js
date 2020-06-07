@@ -11,6 +11,7 @@ export const BOOTCAMP_ERROR = "BOOTCAMP_ERROR";
 export const ADD_BOOTCAMP = "ADD_BOOTCAMP";
 export const DELETE_BOOTCAMP = "DELETE_BOOTCAMP";
 export const COURSE_ERROR = "COURSE_ERROR";
+export const DELETE_COURSE = "DELETE_COURSE";
 export const ADD_COURSE = "ADD_COURSE";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const ADD_REVIEW = "ADD_REVIEW";

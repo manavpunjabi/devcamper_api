@@ -2,6 +2,7 @@ import {
   GET_COURSES_FOR_BOOTCAMP,
   COURSE_ERROR,
   ADD_COURSE,
+  DELETE_COURSE,
 } from "../actions/types";
 
 const initialState = {
@@ -23,6 +24,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         course: payload.data,
+        loading: false,
+      };
+    case DELETE_COURSE:
+      return {
+        ...state,
         loading: false,
       };
     case COURSE_ERROR:

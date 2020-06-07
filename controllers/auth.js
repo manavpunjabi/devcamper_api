@@ -143,7 +143,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse("Error in sending email", 500));
   }
 
-  res.status(200).json({ success: true, data: user });
+  //res.status(200).json({ success: true, data: user });
 });
 
 // @desc    Reset password

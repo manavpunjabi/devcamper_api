@@ -47,3 +47,23 @@ export const updateUser = (formData, history) => async (dispatch) => {
     dispatch(setAlert(err.message, "danger"));
   }
 };
+
+export const forgotPassword = (formData, history) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const res = await axios.post(
+      "/api/v1/auth/forgotpassword",
+      formData,
+      config
+    );
+    console.log(res);
+    dispatch(setAlert("Email sent successfully", "success"));
+    //history.push("/update-password");
+  } catch (err) {
+    dispatch(setAlert("Error sending email", "danger"));
+  }
+};

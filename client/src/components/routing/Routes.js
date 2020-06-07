@@ -16,7 +16,7 @@ import ManageCourses from "../layout/Bootcamp/ManageCourses";
 import AddCourse from "../layout/Bootcamp/AddCourse";
 import AddReview from "../layout/Bootcamp/AddReview";
 import ManageAccount from "../layout/Manage/ManageAccount";
-
+import ForgotPassword from "../layout/Manage/ForgotPassword";
 const Routes = () => {
   return (
     <section className="container">
@@ -49,6 +49,7 @@ const Routes = () => {
         />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/forgot-password" component={ForgotPassword} />
         <Route component={NotFound} />
       </Switch>
     </section>
